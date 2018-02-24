@@ -107,7 +107,7 @@ int extractMin()
 }
 
 double getMedian()
-({
+{
 	if(maxSize != minSize)
 	{
 		if(maxSize > minSize)
