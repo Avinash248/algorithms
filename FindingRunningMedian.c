@@ -54,22 +54,6 @@ void minHeapify(int* heap, int i, int n)
 	}
 }
 
-/*void buildMinHeap()
-{
-	int i;
-
-	for(i=(minSize/2) - 1; i>=0; i--)
-		minHeapify(minHeap, i, minSize);
-}
-
-void buildMaxHeap()
-{
-	int i;
-
-	for(i=(maxSize/2) - 1; i>=0; i--)
-		maxHeapify(maxHeap, i, maxSize);
-}
-*/
 void insertMaxHeap(int value)
 {
     int i;
@@ -115,24 +99,24 @@ int extractMin()
 {
 	int min = minHeap[0], i;
 
-    minHeap[0] = minHeap[minSize-1];
-    --minSize;
+   	minHeap[0] = minHeap[minSize-1];
+    	--minSize;
 	minHeapify(minHeap, 0, minSize);
 
-    return min;
+    	return min;
 }
 
 double getMedian()
 {
 	if(maxSize != minSize)
 	{
-	    if(maxSize > minSize)
-            return (double)(maxHeap[0]);
-        return (double)(minHeap[0]);
+		if(maxSize > minSize)
+            		return (double)(maxHeap[0]);
+        	return (double)(minHeap[0]);
 	}
 	else
 	{
-        return ((double)(minHeap[0] + maxHeap[0])/2.0);
+        	return ((double)(minHeap[0] + maxHeap[0])/2.0);
 	}
 }
 
@@ -165,23 +149,23 @@ int main()
 	scanf("%d", &value);
 
 	median = (double)value;
-    insertMinHeap(value);
-    printf("%0.1f\n", median);
+    	insertMinHeap(value);
+    	printf("%0.1f\n", median);
 
 	for(i=1; i<n; i++)
 	{
-            scanf("%d", &value);
+            	scanf("%d", &value);
 
-			if(value > median)
-				insertMinHeap(value);
-			else
-				insertMaxHeap(value);
+		if(value > median)
+			insertMinHeap(value);
+		else
+			insertMaxHeap(value);
 
-            if(maxSize - minSize >= 2 || minSize - maxSize >= 2)
-                balanceHeaps();
+            	if(maxSize - minSize >= 2 || minSize - maxSize >= 2)
+                	balanceHeaps();
 
-			median = getMedian();
-			printf("%0.1f\n", median);
+		median = getMedian();
+		printf("%0.1f\n", median);
 
 	}
 
