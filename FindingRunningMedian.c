@@ -107,7 +107,7 @@ int extractMin()
 }
 
 double getMedian()
-{
+({
 	if(maxSize != minSize)
 	{
 		if(maxSize > minSize)
@@ -140,8 +140,8 @@ int main()
 
 	scanf("%d", &n);
 
-	maxHeap = (int*)malloc(n*sizeof(int));
-	minHeap = (int*)malloc(n*sizeof(int));
+	maxHeap = (int*)malloc(((n/2)+1)*sizeof(int));
+	minHeap = (int*)malloc(((n/2)+1)*sizeof(int));
 
 	maxSize = 0;
 	minSize = 0;
